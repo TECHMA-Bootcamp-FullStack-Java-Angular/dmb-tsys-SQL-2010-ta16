@@ -41,17 +41,17 @@ select * from departamentos where PRESUPUESTO > (SELECT AVG(PRESUPUESTO) FROM de
 select NOMBRE from departamentos where 2 < (select count(DNI) from empleados where DEPARTAMENTO = CODIGO);
 
 -- 2.15. Añadir un nuevo departamento: 'Calidad', con presupuesto de 40.000 € y código 11. Añadir un empleado vinculado al departamento recién creado: Esther Vázquez, DNI: 89267109
-insert into departamentos (CODIGO,NOMBRE,PRESUPUESTO) values (11, 'Calidad', 40000);
-insert into empleados (DNI,NOMBRE,APELLIDOS,DEPARTAMENTO) values ('89267109', 'Esther', 'Vázquez', 11);
+insert into departamentos (CODIGO, NOMBRE, PRESUPUESTO) values (11, 'Calidad', 40000);
+insert into empleados (DNI, NOMBRE, APELLIDOS, DEPARTAMENTO) values ('89267109', 'Esther', 'Vázquez', 11);
 
 -- 2.16. Aplicar un recorte presupuestario del 10% a todos los departamentos.
-update departamentos set PRESUPUESTO=PRESUPUESTO*0.9 where CODIGO > 0;
+update departamentos set PRESUPUESTO = PRESUPUESTO * 0.9 where CODIGO > 0;
 
 -- 2.17. Reasignar a los empleados del departamento de investigación (código 77) al departamento de informática (código 14).
-update empleados set DEPARTAMENTO=14 where DEPARTAMENTO=77;
+update empleados set DEPARTAMENTO = 14 where DEPARTAMENTO=77;
 
 -- 2.18. Despedir a todos los empleados que trabajan para el departamento de informática (código 14).
-delete from empleados where DEPARTAMENTO=14;
+delete from empleados where DEPARTAMENTO = 14;
 
 -- 2.19. Despedir a todos los empleados que trabajen para departamentos cuyo presupuesto sea superior a los 60.000€.
 delete from empleados where DEPARTAMENTO in (select CODIGO from departamentos where PRESUPUESTO > 60000);
