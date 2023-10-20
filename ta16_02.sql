@@ -5,13 +5,13 @@ select APELLIDOS from empleados;
 select distinct APELLIDOS from empleados;
 
 -- 2.3. Obtener todos los datos de los empleados que se apellidan 'Smitir'
-select * from empleados where APELLIDOS='Smith';
+select * from empleados where APELLIDOS = 'Smith';
 
 -- 2.4. Obtener todos los datos de los empleados que se apellidan 'Smith' y los que se apellidan 'Rogers'
 select * from empleados where APELLIDOS in('Smith', 'Rogers');
 
 -- 2.5. Obtener todos los datos de los empleados que trabajan para el departamento 14
-select * from empleados where DEPARTAMENTO=14;
+select * from empleados where DEPARTAMENTO = 14;
 
 -- 2.6. Obtener todos los datos de los empleados que trabajan para el departamento 37 y para el departamento 77
 select * from empleados where DEPARTAMENTO in(37, 77);
