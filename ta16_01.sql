@@ -103,7 +103,8 @@ WHERE codigo = 8;
 
 # 1.19. Aplicar un descuento del 10% (multiplicar el precio por 0'9) a todos los productos.
 UPDATE articulos
-SET precio = precio * 0.9;
+SET precio = precio * 0.9
+WHERE codigo > 0;
 
 # 1.20. Aplicar un descuento de 10 € a todos los productos cuyo precio sea mayor o igual 212€.
 UPDATE articulos
