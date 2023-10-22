@@ -1,5 +1,5 @@
 
- <div align="center"><img width="75%"  src="https://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta15/blob/main/docs/logoDark.png?raw=true"  alt="Logo BootCamp" /></div>
+ <div align="center"><img width="80%"  src="https://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta15/blob/main/docs/logoDark.png?raw=true"  alt="Logo BootCamp" /></div>
 
 <br>
 
