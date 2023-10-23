@@ -15,10 +15,10 @@ SELECT nombre, precio FROM articulos;
 SELECT nombre FROM articulos WHERE precio <= 200;
 
 # 1.4 Obtener todos los datos de los artículos cuyo precio esté entre los 60 € y los 120 € (ambas cantidades incluidas).
-SELECT * FROM articulos WHERE precio BETWEEN 60 AND 120;
+SELECT * FROM articulos WHERE precio BETWEEN 60 AND 121;
 
 # 1.5 Obtener el nombre y el precio en pesetas (es decir, el precio en euros multiplicado por 166'386)
-SELECT nombre, precio*166.386 AS "Ptas." FROM articulos;
+SELECT nombre, round(precio*166,386) AS "Ptas." FROM articulos;
 
 # 1.6. Seleccionar el precio medio de todos los productos.
 SELECT AVG(precio) FROM articulos;
@@ -51,7 +51,7 @@ SELECT fabricantes.nombre AS "Nombre del fabricante" FROM fabricantes INNER JOIN
 SELECT nombre, precio FROM articulos ORDER BY precio ASC LIMIT 1;
 
 # 1.16. Obtener una lista con el nombre y precio de los artículos más caros de cada pro-veedor (incluyendo el nombre del proveedor).
-SELECT fabricantes.nombre, articulos.nombre, articulos.precio FROM articulos INNER JOIN fabricantes ON articulos.fabricante = fabricantes.codigom WHERE articulos.precio = (SELECT MAX(precio) FROM articulos WHERE articulos.fabricante = fabricantes.codigo) GROUP BY fabricantes.nombre, articulos.precio, articulos.nombre;
+SELECT fbk.nombre, art.nombre, art.precio FROM articulos AS art INNER JOIN fabricantes AS fbk ON art.fabricante = fbk.codigo WHERE art.precio = (SELECT MAX(precio) FROM articulos as art WHERE art.fabricante = fbk.codigo) GROUP BY fbk.nombre, art.precio, art.nombre;
 
 # 1.17. Añadir un nuevo producto: Altavoces de 70 € (del fabricante 2)
 INSERT INTO articulos (codigo, nombre, precio, fabricante) VALUES (11, "Altavoces", 70, 2);

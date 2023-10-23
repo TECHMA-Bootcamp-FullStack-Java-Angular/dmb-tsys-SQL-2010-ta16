@@ -15,8 +15,7 @@ SELECT * FROM peliculas WHERE CALIFICACIONEDAD IS NULL;
 # 4.4. Mostrar todas las salas que no proyectan ninguna pelicula.
 SELECT NOMBRE FROM salas WHERE PELICULA IS NULL;
 
-# 4.5. Mostrar la informacion de todas las salas y, si se proyecta alguna pelicula en la sala,
-# mostrar también a informacion de la pelicula.
+# 4.5. Mostrar la informacion de todas las salas y, si se proyecta alguna pelicula en la sala, mostrar también a informacion de la pelicula.
 SELECT * FROM salas LEFT JOIN peliculas ON salas.PELICULA = peliculas.CODIGO;
 
 # 4.6. Mostrar la información de todas las películas y, si se proyecta en alguna sala, mostrar también la información de la sala.
