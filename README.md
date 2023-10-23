@@ -13,7 +13,7 @@ Este repositorio contiene las tareas del Bootcamp 👨‍💻
 
 | SQL Sentences 🖥️ 
 | ------------- 
-| [Exercise 1](hhttps://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta16/blob/main/ta16_01.sql)  
-| [Exercise 2](https://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta16/blob/main/ta16_02.sql)  
+| [Exercise 1](https://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta16/blob/main/ta16_01.sql)
+| [Exercise 2](https://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta16/blob/main/ta16_02.sql)
 | [Exercise 3](https://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta16/blob/main/ta16_03.sql)
 | [Exercise 4](https://github.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-java-2010-ta16/blob/main/ta16_04.sql)     
