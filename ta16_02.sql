@@ -8,7 +8,7 @@ SELECT APELLIDOS FROM empleados;
 # 2.2. Obtener los apellidos de los empleados sin repeticiones
 SELECT DISTINCT APELLIDOS FROM empleados;
 
-# 2.3. Obtener todos los datos de los empleados que se apellidan 'Smitir'
+# 2.3. Obtener todos los datos de los empleados que se apellidan 'Smith';
 SELECT * FROM empleados WHERE APELLIDOS = 'Smith';
 
 # 2.4. Obtener todos los datos de los empleados que se apellidan 'Smith' y los que se apellidan 'Rogers'
@@ -27,7 +27,7 @@ SELECT * FROM empleados WHERE APELLIDOS like 'P%';
 SELECT SUM(PRESUPUESTO) FROM departamentos;
 
 # 2.9. Obtener el numero de empleados en cada departamento.
-SELECT d.NOMBRE, count(e.DNI) FROM departamentos AS d INNER JOIN empleados AS e ON d.CODIGO = e.DEPARTAMENTO group by d.NOMBRE;
+SELECT departamentos.NOMBRE, (SELECT COUNT(*) FROM empleados WHERE empleados.DEPARTAMENTO = departamentos.CODIGO) AS 'Nª Empleados' FROM departamentos;
 
 # 2.10. Obtener un listado completo de empleados, incluyendo por cada empleado los datos del empleado y de su departamento.
 SELECT d.*, e.*FROM departamentos AS d INNER JOIN empleados AS e ON d.CODIGO = e.DEPARTAMENTO;

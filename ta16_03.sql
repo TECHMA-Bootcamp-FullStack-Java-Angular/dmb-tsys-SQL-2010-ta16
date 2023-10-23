@@ -1,6 +1,6 @@
 
 /********************************
-        TA16 - EJERCICIO 2 
+        TA16 - EJERCICIO 3 
 *********************************/
 
 # 3.1. Obtener todos los almacenes.
@@ -43,10 +43,21 @@ INSERT INTO cajas VALUES('H5RT', 'Papel', 200, 2);
 UPDATE cajas SET VALOR = VALOR * 0.85;
 
 # 3.14. Rebajar un 20% el valor de todas las cajas cuyo valor sea superior al valor medio de todas las cajas.
-UPDATE cajas SET VALOR = VALOR * 0.80 WHERE VALOR > (SELECT AVG(cajas2.VALOR) FROM (SELECT * FROM cajas) cajas2);
+UPDATE cajas SET VALOR = VALOR * 0.80 WHERE VALOR > (SELECT AVG(cajas2.VALOR) FROM (SELECT * FROM cajas) as cajas2);
 
 # 3.15. Eliminar todas las cajas cuyo valor sea inferior a 100 €.
 DELETE FROM cajas WHERE VALOR < 100;
 
-# 3.16. Vaciar el contenido de los almacenes que estén saturados.
-DELETE FROM cajas WHERE ALMACEN IN (SELECT a.CODIGO FROM almacenes a INNER JOIN (SELECT ALMACEN, COUNT(*) AS NUMCAJAS FROM cajas GROUP BY ALMACEN) b ON a.CODIGO = b.ALMACEN WHERE b.NUMCAJAS >= a.CAPACIDAD);
+# 3.16. Vaciar el contenido de los almacenes que estén saturados. 
+
+# calcula la cantidad de cajas en cada almacén.
+-- SELECT  ALMACEN, COUNT(*) AS NUMCAJAS FROM cajas GROUP BY ALMACEN;
+
+# No traemos los codigos de los alamacenenes tras la comparación de la capacidad de cada almacén con el número cajas de la consulta anterior. Y si el número de cajas supera o es igual a la capacidad del almacén, se considera un almacén lleno o sobrecargado.
+-- SELECT a.CODIGO FROM almacenes a INNER JOIN (SELECT  ALMACEN, COUNT(*) AS NUMCAJAS FROM cajas GROUP BY ALMACEN) b ON a.CODIGO = b.ALMACEN WHERE b.NUMCAJAS >= a.CAPACIDAD; 
+
+DELETE FROM cajas WHERE
+    ALMACEN IN (SELECT a.CODIGO
+    FROM almacenes a INNER JOIN
+        (SELECT  ALMACEN, COUNT(*) AS NUMCAJAS FROM cajas GROUP BY ALMACEN) b ON a.CODIGO = b.ALMACEN
+    WHERE b.NUMCAJAS >= a.CAPACIDAD);
